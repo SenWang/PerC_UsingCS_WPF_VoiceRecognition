@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Media.Imaging;
 
 namespace PerC_UsingCS_WPF
@@ -34,7 +35,15 @@ namespace PerC_UsingCS_WPF
                 Speak("我很好");
             else if (content == "hello")
                 Speak("哈囉");
+            else if (content == "good night")
+                SendCommand("{Right}");
+            else if (content == "good morning")
+                SendCommand("{Left}");
 
+        }
+        void SendCommand(string command)
+        {
+            SendKeys.SendWait(command);
         }
         void Speak(string response)
         {
